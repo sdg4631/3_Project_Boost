@@ -32,6 +32,9 @@ public class Rocket : MonoBehaviour {
                 // do nothing
                 print("OK"); // TODO remove 
                 break;
+            case "Finish":
+                print("OK"); // TODO remove
+                break;
             case "Fuel":
                 print("OK"); // TODO remove 
                 break;
