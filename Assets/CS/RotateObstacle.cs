@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotateObstacle : MonoBehaviour {
+public class RotateObstacle : MonoBehaviour
+{
+    [SerializeField] float rotationSpeed = 10;
 
 	// Use this for initialization
 	void Start()
@@ -18,7 +20,8 @@ public class RotateObstacle : MonoBehaviour {
 
     void Rotate()
     {
-        transform.Rotate(Vector3.forward);
-        transform.Rotate(Vector3.down);
+        float rotationThisFrame = rotationSpeed * Time.deltaTime;
+        transform.Rotate(Vector3.forward * rotationThisFrame);
+        transform.Rotate(Vector3.down * rotationThisFrame);
     }
 }
