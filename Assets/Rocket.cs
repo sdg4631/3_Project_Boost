@@ -8,6 +8,8 @@ public class Rocket : MonoBehaviour
 {
     [SerializeField] float rcsThrust = 100f;
     [SerializeField] float mainThrust = 2000f;
+    [SerializeField] float levelLoadDelay = 2f;
+
 
     [SerializeField] AudioClip mainEngine;
     [SerializeField] AudioClip deathExplosion;
@@ -45,37 +47,36 @@ public class Rocket : MonoBehaviour
     {
         if (state != State.Alive) { return; } // ignore collisions when dead
 
-        float timeToLoad = 2f;
         switch(collision.gameObject.tag)
         {
             case "Friendly":
                 // do nothing               
                 break;
             case "Finish":
-                StartSuccessSequence(timeToLoad);
+                StartSuccessSequence();
                 break;
             default:
                 deathExplosionParticles.Play();
-                StartDeathSequence(timeToLoad);
+                StartDeathSequence();
                 break;
         }
     }
 
-    private void StartSuccessSequence(float timeToLoad)
+    private void StartSuccessSequence()
     {
         state = State.Transcending;
         audioSource.Stop();
         audioSource.PlayOneShot(levelComplete);
         levelCompleteParticles.Play();
-        Invoke("LoadNextScene", timeToLoad);
+        Invoke("LoadNextScene", levelLoadDelay);
     }
 
-    private void StartDeathSequence(float timeToLoad)
+    private void StartDeathSequence()
     {
         state = State.Dying;
         audioSource.Stop();
         audioSource.PlayOneShot(deathExplosion);
-        Invoke("LoadFirstScene", timeToLoad);
+        Invoke("LoadFirstScene", levelLoadDelay);
     }
 
     private void LoadFirstScene()
