@@ -4,17 +4,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Rocket : MonoBehaviour {
-
+public class Rocket : MonoBehaviour
+{
     [SerializeField] float rcsThrust = 100f;
     [SerializeField] float mainThrust = 2000f;
+
     [SerializeField] AudioClip mainEngine;
     [SerializeField] AudioClip deathExplosion;
     [SerializeField] AudioClip levelComplete;
 
+    [SerializeField] ParticleSystem mainEngineParticles;
+    [SerializeField] ParticleSystem deathExplosionParticles;
+    [SerializeField] ParticleSystem levelCompleteParticles;
+
     Rigidbody rigidBody;
     AudioSource audioSource;
-
 
     enum State { Alive, Dying, Transcending};
     State state = State.Alive;
@@ -51,9 +55,19 @@ public class Rocket : MonoBehaviour {
                 StartSuccessSequence(timeToLoad);
                 break;
             default:
+                deathExplosionParticles.Play();
                 StartDeathSequence(timeToLoad);
                 break;
         }
+    }
+
+    private void StartSuccessSequence(float timeToLoad)
+    {
+        state = State.Transcending;
+        audioSource.Stop();
+        audioSource.PlayOneShot(levelComplete);
+        levelCompleteParticles.Play();
+        Invoke("LoadNextScene", timeToLoad);
     }
 
     private void StartDeathSequence(float timeToLoad)
@@ -62,14 +76,6 @@ public class Rocket : MonoBehaviour {
         audioSource.Stop();
         audioSource.PlayOneShot(deathExplosion);
         Invoke("LoadFirstScene", timeToLoad);
-    }
-
-    private void StartSuccessSequence(float timeToLoad)
-    {
-        state = State.Transcending;
-        audioSource.Stop();
-        audioSource.PlayOneShot(levelComplete);
-        Invoke("LoadNextScene", timeToLoad);
     }
 
     private void LoadFirstScene()
@@ -91,6 +97,7 @@ public class Rocket : MonoBehaviour {
         else
         {
             audioSource.Stop();
+            mainEngineParticles.Stop();
         }
     }
 
@@ -102,6 +109,7 @@ public class Rocket : MonoBehaviour {
         {
             audioSource.PlayOneShot(mainEngine);
         }
+        mainEngineParticles.Play();
     }
 
     private void RespondToRotateInput()
