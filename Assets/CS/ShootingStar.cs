@@ -15,14 +15,13 @@ public class ShootingStar : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        startingStarPos = transform.position;
+        
     }
 	
 	// Update is called once per frame
 	void Update()
     {
-        elapsedTime += Time.deltaTime;
-        print(elapsedTime);
+        elapsedTime += Time.deltaTime;        
         if ((elapsedTime > 19f && elapsedTime <20f) || (elapsedTime >40 && elapsedTime <41) )
         {
             gameObject.transform.position = new Vector3(-104.6f, -4.4f, 119.17f);
