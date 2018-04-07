@@ -9,18 +9,18 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1775227170991902}
+  m_RootGameObject: {fileID: 1945396047791006}
   m_IsPrefabParent: 1
---- !u!1 &1775227170991902
+--- !u!1 &1945396047791006
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4785651469311984}
-  - component: {fileID: 82424858745576908}
-  - component: {fileID: 114061830809916912}
+  - component: {fileID: 4079890310502558}
+  - component: {fileID: 82647508226835708}
+  - component: {fileID: 114482890824972356}
   m_Layer: 0
   m_Name: Soundtrack
   m_TagString: music
@@ -28,12 +28,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4785651469311984
+--- !u!4 &4079890310502558
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1775227170991902}
+  m_GameObject: {fileID: 1945396047791006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 20.456287, y: -61.846794, z: 260.44772}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -41,18 +41,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &82424858745576908
+--- !u!82 &82647508226835708
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1775227170991902}
+  m_GameObject: {fileID: 1945396047791006}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c0ee7e53ef7c2184ab718bd711ce00d2, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e160affc6a8802c4b8b7cc6611a1cf31, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.05
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -121,12 +121,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114061830809916912
+--- !u!114 &114482890824972356
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1775227170991902}
+  m_GameObject: {fileID: 1945396047791006}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4fdc1cc92433bb245a45937e996b76cd, type: 3}

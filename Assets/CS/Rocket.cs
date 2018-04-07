@@ -100,13 +100,13 @@ public class Rocket : MonoBehaviour
         Invoke("LoadCurrentScene", levelLoadDelay);
     }
 
-    private void LoadCurrentScene()
+    void LoadCurrentScene()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
     }
 
-    private void LoadNextScene()
+    void LoadNextScene()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;        
