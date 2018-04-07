@@ -97,17 +97,24 @@ public class Rocket : MonoBehaviour
         state = State.Dying;
         audioSource.Stop();
         audioSource.PlayOneShot(deathExplosion);
-        Invoke("LoadFirstScene", levelLoadDelay);
+        Invoke("LoadCurrentScene", levelLoadDelay);
     }
 
-    private void LoadFirstScene()
+    private void LoadCurrentScene()
     {
-        SceneManager.LoadScene(0);
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
     }
 
     private void LoadNextScene()
     {
-        SceneManager.LoadScene(1); // Allow for more than two levels
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1;        
+        if(nextSceneIndex == SceneManager.sceneCountInBuildSettings)
+        {
+            nextSceneIndex = 0;
+        }
+        SceneManager.LoadScene(nextSceneIndex);
     }
 
     private void RespondToThrustInput()

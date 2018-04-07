@@ -2919,12 +2919,12 @@ Prefab:
     - target: {fileID: 108401958626096578, guid: 09edc8b372f69304abd32a728bd293c1,
         type: 2}
       propertyPath: m_SpotAngle
-      value: 86.41
+      value: 96.8
       objectReference: {fileID: 0}
     - target: {fileID: 108401958626096578, guid: 09edc8b372f69304abd32a728bd293c1,
         type: 2}
       propertyPath: m_Range
-      value: 7.2
+      value: 7.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 09edc8b372f69304abd32a728bd293c1, type: 2}
