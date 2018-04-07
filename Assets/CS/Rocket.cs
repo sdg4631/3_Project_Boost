@@ -67,6 +67,7 @@ public class Rocket : MonoBehaviour
         state = State.Transcending;
         audioSource.Stop();
         audioSource.PlayOneShot(levelComplete);
+        mainEngineParticles.Stop();
         levelCompleteParticles.Play();
         Invoke("LoadNextScene", levelLoadDelay);
     }

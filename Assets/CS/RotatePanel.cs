@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotateObstacle : MonoBehaviour
+public class RotatePanel : MonoBehaviour
 {
     [SerializeField] float rotationSpeed = 10;
 
-	// Use this for initialization
-	void Start()
+    // Use this for initialization
+    void Start()
     {
 		
 	}
@@ -15,13 +15,7 @@ public class RotateObstacle : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
-        Rotate();
-    }
-
-    private void Rotate()
-    {
         float rotationThisFrame = rotationSpeed * Time.deltaTime;
         transform.Rotate(Vector3.forward * rotationThisFrame);
-        transform.Rotate(Vector3.down * rotationThisFrame);
     }
 }
